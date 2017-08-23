@@ -49,12 +49,17 @@ int* twoSum(int* nums, int numsSize, int target) {
 
 els* sort(els* array, int numsSize) {
 	int i, j, temp;
+	int x;
 	for (i = 0; i < numsSize - 1; i++) {
-		for (j = i; j < numsSize - 1 && array[j].value > array[j + 1].value; j++) {
+		for (j = i; array[j].value > array[j + 1].value && j < numsSize - 1; j++) {
 			temp = array[j].value;
 			array[j].value = array[j + 1].value;
 			array[j + 1].value = temp;
 		}
+		for (x = 0; x < numsSize; x++) {
+			printf("%d ", array[x].value);
+		}
+		printf("\n");
 	}
 	return array;
 }
